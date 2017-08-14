@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_date"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Date and Time"
+        android:icon="@drawable/ic_access_time_black_24dp"/>
+
+    <item
+        android:id="@+id/menu_location"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Location"
+        android:icon="@drawable/ic_location_on_black_24dp"/>
+
+    <item
+        android:id="@+id/menu_sleep"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Sleep"
+        android:icon="@drawable/ic_alarm_off_black_24dp"/>
+</menu>

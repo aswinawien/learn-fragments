@@ -1,14 +1,20 @@
 package com.example.aswinawien.belajar_fragments;
 
+import android.content.Intent;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentAnalog.OnFragmentInteractionListener,FragmentDigital.OnFragmentInteractionListener{
 
@@ -37,6 +43,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .add(R.id.fragment_container,fragment).addToBackStack(null).commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Fragment fragment;
+        int id = item.getItemId();
+        switch (id){
+            case R.id.menu_date:
+                startActivity(new Intent(Settings.ACTION_DATE_SETTINGS));
+                break;
+            case R.id.menu_location:
+                startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
+                break;
+            case R.id.menu_sleep:
+                startActivity(new Intent(Settings.ACTION_SOUND_SETTINGS));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
